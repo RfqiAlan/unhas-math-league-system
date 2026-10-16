@@ -1,0 +1,60 @@
+{
+  "mcl": {
+    "peserta": [
+      "eiphi",
+      "(a+bi)GÆL",
+      "π Radian",
+      "Arsya",
+      "qwerty",
+      "Kumiko",
+      "rquartz",
+      "Shiro",
+      "mr. sawa ito",
+      "Ken"
+    ],
+    "pertandingan": [],
+    "juara": {
+      "1": { "nama": "eiphi", "foto": "" },
+      "2": { "nama": "(a+bi)GÆL", "foto": "" },
+      "3": { "nama": "π Radian", "foto": "" }
+    },
+    "mvp": {
+      "nama": "Kumiko",
+      "foto": "",
+      "posX": 88,
+      "posY": 60,
+      "skala": 115,
+      "pekan": 1,
+      "catatan": "Dominasi sempurna di babak kalkulus cepat pekan ke-1"
+    }
+  },
+  "mrl": {
+    "peserta": [
+      "Elrick",
+      "AwanGg",
+      "zky.ga",
+      "ε<0",
+      "kyou",
+      "Senku 297",
+      "Jual cherry",
+      "Myth",
+      "LUTHFI^x",
+      "Meanrey"
+    ],
+    "pertandingan": [],
+    "juara": {
+      "1": { "nama": "Elrick", "foto": "" },
+      "2": { "nama": "Senku 297", "foto": "" },
+      "3": { "nama": "AwanGg", "foto": "" }
+    },
+    "mvp": {
+      "nama": "Senku 297",
+      "foto": "",
+      "posX": 88,
+      "posY": 60,
+      "skala": 115,
+      "pekan": 1,
+      "catatan": "Eksekusi kilat aljabar linier pekan 1"
+    }
+  }
+}

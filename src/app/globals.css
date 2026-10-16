@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Official Academic Colors */
+  --unhas-crimson: #850a14;
+  --unhas-crimson-dark: #4d040a;
+  --unhas-crimson-light: #b3101e;
+  --unhas-crimson-glow: rgba(179, 16, 30, 0.4);
+
+  --championship-gold: #d4af37;
+  --championship-gold-light: #f5d77f;
+  --championship-gold-dark: #997819;
+  --championship-gold-glow: rgba(212, 175, 55, 0.35);
+
+  --silver: #cbd5e1;
+  --bronze: #cd7f32;
+
+  /* Surfaces & Canvas */
+  --surface-canvas: #090305;
+  --surface-panel: rgba(18, 6, 9, 0.82);
+  --surface-panel-elevated: #1e090e;
+  --surface-panel-card: rgba(26, 9, 13, 0.9);
+  --surface-input: #100406;
+
+  /* Editorial Borders & Dividers */
+  --border-primary: rgba(133, 10, 20, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-gold: rgba(212, 175, 55, 0.35);
+
+  /* Performance & Results */
+  --status-win: #10b981;
+  --status-draw: #94a3b8;
+  --status-loss: #ef4444;
+
+  /* Editorial Typography */
+  --text-primary: #ffffff;
+  --text-secondary: #e2d1d4;
+  --text-muted: #9e7f84;
+  --text-dim: #6b5055;
+
+  /* Typography Stacks */
+  --font-display: 'Bricolage Grotesque', 'Outfit', system-ui, sans-serif;
+  --font-heading: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--surface-canvas);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(ellipse 70% 35% at 50% -5%, rgba(133, 10, 20, 0.45) 0%, transparent 65%),
+    radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+    linear-gradient(180deg, #090305 0%, #060203 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* League Glass Panel */
+.league-card {
+  background: var(--surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  position: relative;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.league-card:hover {
+  border-color: rgba(133, 10, 20, 0.4);
+}
+
+/* Badges */
+.league-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.league-badge-gold {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--championship-gold-light);
+  border: 1px solid var(--border-gold);
+}
+
+.league-badge-crimson {
+  background: rgba(133, 10, 20, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(179, 16, 30, 0.4);
+}
+
+/* Editorial Buttons */
+.btn-league {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn-league-primary {
+  background: linear-gradient(135deg, var(--unhas-crimson-light), var(--unhas-crimson));
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 18px rgba(133, 10, 20, 0.4);
+}
+
+.btn-league-primary:hover {
+  background: linear-gradient(135deg, #cc1424, var(--unhas-crimson-light));
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(179, 16, 30, 0.55);
+}
+
+.btn-league-gold {
+  background: linear-gradient(135deg, var(--championship-gold-light), var(--championship-gold));
+  color: #14070a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+}
+
+.btn-league-gold:hover {
+  background: linear-gradient(135deg, #fff, var(--championship-gold-light));
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
+}
+
+.btn-league-outline {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-league-outline:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-league-sm {
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  border-radius: var(--radius-xs);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #330b10;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--unhas-crimson);
+}
