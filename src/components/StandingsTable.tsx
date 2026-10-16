@@ -23,7 +23,7 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
     setIsExporting(true);
     try {
       const canvas = await html2canvas(tableRef.current, {
-        backgroundColor: '#090305',
+        backgroundColor: '#ffffff',
         scale: 2
       });
       const dataUrl = canvas.toDataURL('image/png');
@@ -49,12 +49,12 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
           width: '26px',
           height: '26px',
           borderRadius: 'var(--radius-xs)',
-          background: 'linear-gradient(135deg, var(--championship-gold-light), var(--championship-gold))',
-          color: '#0e0406',
+          background: 'var(--color-gold)',
+          color: 'var(--color-black)',
           fontFamily: 'var(--font-mono)',
           fontWeight: 900,
-          fontSize: '0.82rem',
-          boxShadow: '0 0 10px rgba(212, 175, 55, 0.4)'
+          fontSize: '0.84rem',
+          boxShadow: '0 2px 8px rgba(247, 187, 14, 0.4)'
         }}>
           1
         </span>
@@ -69,11 +69,12 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
           width: '26px',
           height: '26px',
           borderRadius: 'var(--radius-xs)',
-          background: 'linear-gradient(135deg, #f1f5f9, #94a3b8)',
-          color: '#0e0406',
+          background: 'var(--color-gray-light)',
+          color: 'var(--color-black)',
           fontFamily: 'var(--font-mono)',
           fontWeight: 900,
-          fontSize: '0.82rem'
+          fontSize: '0.84rem',
+          border: '1px solid var(--border-medium)'
         }}>
           2
         </span>
@@ -88,11 +89,11 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
           width: '26px',
           height: '26px',
           borderRadius: 'var(--radius-xs)',
-          background: 'linear-gradient(135deg, #fed7aa, #c2410c)',
-          color: '#0e0406',
+          background: '#d48039',
+          color: '#ffffff',
           fontFamily: 'var(--font-mono)',
           fontWeight: 900,
-          fontSize: '0.82rem'
+          fontSize: '0.84rem'
         }}>
           3
         </span>
@@ -102,8 +103,8 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
       <span style={{
         fontFamily: 'var(--font-mono)',
         fontWeight: 700,
-        fontSize: '0.85rem',
-        color: rank >= 9 ? 'var(--status-loss)' : 'var(--text-muted)'
+        fontSize: '0.88rem',
+        color: rank >= 9 ? 'var(--color-crimson)' : 'var(--color-charcoal)'
       }}>
         {rank}
       </span>
@@ -114,12 +115,12 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
     if (form === 'W') {
       return (
         <span style={{
-          background: 'rgba(16, 185, 129, 0.15)',
+          background: 'var(--status-win-bg)',
           color: 'var(--status-win)',
-          border: '1px solid rgba(16, 185, 129, 0.35)',
-          borderRadius: '2px',
+          border: '1px solid rgba(15, 138, 95, 0.3)',
+          borderRadius: '3px',
           padding: '2px 6px',
-          fontSize: '0.68rem',
+          fontSize: '0.7rem',
           fontFamily: 'var(--font-mono)',
           fontWeight: 800
         }}>
@@ -130,12 +131,12 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
     if (form === 'S') {
       return (
         <span style={{
-          background: 'rgba(148, 163, 184, 0.15)',
+          background: 'var(--status-draw-bg)',
           color: 'var(--status-draw)',
-          border: '1px solid rgba(148, 163, 184, 0.35)',
-          borderRadius: '2px',
+          border: '1px solid var(--border-medium)',
+          borderRadius: '3px',
           padding: '2px 6px',
-          fontSize: '0.68rem',
+          fontSize: '0.7rem',
           fontFamily: 'var(--font-mono)',
           fontWeight: 800
         }}>
@@ -146,12 +147,12 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
     if (form === 'K') {
       return (
         <span style={{
-          background: 'rgba(239, 68, 68, 0.15)',
-          color: 'var(--status-loss)',
-          border: '1px solid rgba(239, 68, 68, 0.35)',
-          borderRadius: '2px',
+          background: 'var(--status-loss-bg)',
+          color: 'var(--color-crimson)',
+          border: '1px solid rgba(174, 2, 1, 0.3)',
+          borderRadius: '3px',
           padding: '2px 6px',
-          fontSize: '0.68rem',
+          fontSize: '0.7rem',
           fontFamily: 'var(--font-mono)',
           fontWeight: 800
         }}>
@@ -175,22 +176,22 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-            <span className="league-badge league-badge-gold">TABEL KLASEMEN RESMI</span>
-            <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+            <span className="badge-clean badge-crimson">TABEL KLASEMEN RESMI</span>
+            <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>
               PKM FMIPA UNHAS
             </span>
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '1.65rem',
-            fontWeight: 800,
-            color: '#fff',
-            letterSpacing: '-0.02em'
+            fontSize: '1.75rem',
+            fontWeight: 900,
+            color: 'var(--color-black)',
+            letterSpacing: '-0.03em'
           }}>
             Peringkat Klasemen &middot; {ligaName}
           </h2>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-            Kriteria Tie-Breaker: Total Poin &gt; Soal Benar (SB) &gt; Total Skor &gt; Alfabetis
+          <p style={{ fontSize: '0.82rem', color: 'var(--color-charcoal)', marginTop: '2px' }}>
+            Kriteria Tie-Breaker: Total Poin &gt; Soal Benar (SB) &gt; Total Skor Matematika &gt; Alfabetis
           </p>
         </div>
 
@@ -204,14 +205,15 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               style={{
-                background: 'var(--surface-input)',
-                border: '1px solid var(--border-subtle)',
+                background: 'var(--color-white)',
+                border: '1.5px solid var(--border-subtle)',
                 borderRadius: 'var(--radius-xs)',
-                padding: '7px 14px 7px 30px',
-                color: '#fff',
+                padding: '7px 14px 7px 32px',
+                color: 'var(--color-black)',
                 fontSize: '0.82rem',
                 outline: 'none',
-                width: '180px'
+                width: '180px',
+                fontWeight: 600
               }}
             />
             <svg
@@ -219,11 +221,11 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
               height="13"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="var(--text-muted)"
-              strokeWidth="2"
+              stroke="var(--color-charcoal)"
+              strokeWidth="2.5"
               style={{
                 position: 'absolute',
-                left: '10px',
+                left: '11px',
                 top: '50%',
                 transform: 'translateY(-50%)'
               }}
@@ -237,9 +239,9 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
           <button
             onClick={handleExportPng}
             disabled={isExporting}
-            className="btn-league btn-league-outline btn-league-sm"
+            className="btn-unhas btn-outline-dark btn-sm"
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
@@ -256,7 +258,8 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
         style={{
           overflowX: 'auto',
           padding: '20px 24px',
-          border: '1px solid var(--border-subtle)'
+          background: 'var(--color-white)',
+          border: '1.5px solid var(--border-subtle)'
         }}
       >
         <table style={{
@@ -268,23 +271,24 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
         }}>
           <thead>
             <tr style={{
-              color: 'var(--text-muted)',
+              background: 'var(--bg-surface-subtle)',
+              color: 'var(--color-charcoal)',
               fontSize: '0.72rem',
               fontFamily: 'var(--font-mono)',
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              borderBottom: '1px solid var(--border-subtle)'
+              fontWeight: 800
             }}>
-              <th style={{ padding: '8px 10px', width: '52px', textAlign: 'center' }}>POS</th>
-              <th style={{ padding: '8px 12px' }}>PESERTA</th>
-              <th style={{ padding: '8px 10px', textAlign: 'center', width: '50px' }}>P</th>
-              <th style={{ padding: '8px 10px', textAlign: 'center', width: '50px' }}>M</th>
-              <th style={{ padding: '8px 10px', textAlign: 'center', width: '50px' }}>S</th>
-              <th style={{ padding: '8px 10px', textAlign: 'center', width: '50px' }}>K</th>
-              <th style={{ padding: '8px 12px', textAlign: 'center' }}>SOAL BENAR</th>
-              <th style={{ padding: '8px 12px', textAlign: 'center' }}>TOTAL SKOR</th>
-              <th style={{ padding: '8px 12px', textAlign: 'center', width: '60px' }}>BENTUK</th>
-              <th style={{ padding: '8px 16px', textAlign: 'right', width: '80px' }}>PTS</th>
+              <th style={{ padding: '10px', width: '52px', textAlign: 'center' }}>POS</th>
+              <th style={{ padding: '10px 14px' }}>PESERTA</th>
+              <th style={{ padding: '10px', textAlign: 'center', width: '50px' }}>P</th>
+              <th style={{ padding: '10px', textAlign: 'center', width: '50px' }}>M</th>
+              <th style={{ padding: '10px', textAlign: 'center', width: '50px' }}>S</th>
+              <th style={{ padding: '10px', textAlign: 'center', width: '50px' }}>K</th>
+              <th style={{ padding: '10px 14px', textAlign: 'center' }}>SOAL BENAR</th>
+              <th style={{ padding: '10px 14px', textAlign: 'center' }}>TOTAL SKOR</th>
+              <th style={{ padding: '10px 12px', textAlign: 'center', width: '60px' }}>BENTUK</th>
+              <th style={{ padding: '10px 16px', textAlign: 'right', width: '80px' }}>PTS</th>
             </tr>
           </thead>
           <tbody>
@@ -301,22 +305,20 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
                 const isPodium = rank <= 3;
                 const isDanger = rank >= 9;
 
-                let borderLeftColor = 'rgba(255, 255, 255, 0.08)';
-                if (isChampion) borderLeftColor = 'var(--championship-gold)';
-                else if (isPodium) borderLeftColor = 'rgba(212, 175, 55, 0.4)';
-                else if (isDanger) borderLeftColor = 'var(--status-loss)';
+                let borderLeftColor = 'var(--border-subtle)';
+                if (isChampion) borderLeftColor = 'var(--color-gold)';
+                else if (isPodium) borderLeftColor = 'var(--color-crimson)';
+                else if (isDanger) borderLeftColor = 'var(--color-crimson)';
 
                 return (
                   <tr
                     key={row.nama}
                     style={{
                       background: isChampion
-                        ? 'rgba(212, 175, 55, 0.05)'
-                        : isPodium
-                        ? 'rgba(255, 255, 255, 0.02)'
+                        ? 'rgba(247, 187, 14, 0.08)'
                         : isDanger
-                        ? 'rgba(239, 68, 68, 0.04)'
-                        : 'rgba(255, 255, 255, 0.01)',
+                        ? 'rgba(174, 2, 1, 0.03)'
+                        : 'var(--color-white)',
                       transition: 'background 0.15s ease'
                     }}
                   >
@@ -329,13 +331,13 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
                     }}>
                       {getRankIndicator(rank)}
                     </td>
-                    <td style={{ padding: '12px' }}>
+                    <td style={{ padding: '12px 14px' }}>
                       <div style={{
                         fontFamily: 'var(--font-heading)',
-                        fontWeight: 700,
-                        color: isPodium ? '#ffffff' : 'var(--text-secondary)',
-                        fontSize: '0.94rem',
-                        letterSpacing: '0.01em'
+                        fontWeight: 800,
+                        color: 'var(--color-black)',
+                        fontSize: '0.96rem',
+                        letterSpacing: '-0.01em'
                       }}>
                         {row.nama}
                       </div>
@@ -343,40 +345,41 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
                         <div style={{
                           fontSize: '0.68rem',
                           fontFamily: 'var(--font-mono)',
-                          color: 'var(--status-loss)',
-                          fontWeight: 700,
+                          color: 'var(--color-crimson)',
+                          fontWeight: 800,
                           marginTop: '2px'
                         }}>
                           [PENALTI TERTUNDA: -{row.penaltiTertunda} SKOR]
                         </div>
                       )}
                     </td>
-                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 600 }}>
                       {row.main}
                     </td>
-                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--status-win)', fontWeight: 700 }}>
+                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--status-win)', fontWeight: 800 }}>
                       {row.menang}
                     </td>
-                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--status-draw)' }}>
+                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--status-draw)', fontWeight: 600 }}>
                       {row.seri}
                     </td>
-                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--status-loss)' }}>
+                    <td style={{ padding: '12px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)', color: 'var(--color-crimson)', fontWeight: 700 }}>
                       {row.kalah}
                     </td>
                     <td style={{
-                      padding: '12px',
+                      padding: '12px 14px',
                       textAlign: 'center',
                       fontFamily: 'var(--font-mono)',
-                      fontWeight: 700,
-                      color: isPodium ? 'var(--championship-gold-light)' : 'var(--text-secondary)'
+                      fontWeight: 800,
+                      color: isPodium ? 'var(--color-crimson)' : 'var(--color-black)'
                     }}>
                       {row.benar}
                     </td>
                     <td style={{
-                      padding: '12px',
+                      padding: '12px 14px',
                       textAlign: 'center',
                       fontFamily: 'var(--font-mono)',
-                      color: 'var(--text-muted)'
+                      color: 'var(--color-charcoal)',
+                      fontWeight: 700
                     }}>
                       {row.skorTotal}
                     </td>
@@ -387,9 +390,9 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
                       padding: '12px 16px',
                       textAlign: 'right',
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '1.2rem',
-                      fontWeight: 800,
-                      color: isPodium ? 'var(--championship-gold)' : '#ffffff',
+                      fontSize: '1.25rem',
+                      fontWeight: 900,
+                      color: isChampion ? 'var(--color-crimson)' : 'var(--color-black)',
                       borderTopRightRadius: 'var(--radius-xs)',
                       borderBottomRightRadius: 'var(--radius-xs)'
                     }}>
@@ -411,19 +414,19 @@ export default function StandingsTable({ standings, ligaName }: StandingsTablePr
           marginTop: '16px',
           paddingTop: '12px',
           borderTop: '1px solid var(--border-subtle)',
-          fontSize: '0.72rem',
+          fontSize: '0.74rem',
           fontFamily: 'var(--font-mono)',
-          color: 'var(--text-muted)'
+          color: 'var(--color-charcoal)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '8px', height: '8px', background: 'var(--championship-gold)', borderRadius: '1px' }} />
-            Podium 1-3: Zona Medali &amp; Trofi
+            <span style={{ width: '8px', height: '8px', background: 'var(--color-gold)', borderRadius: '2px' }} />
+            Podium 1-3: Zona Medali &amp; Trofi Kejuaraan
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '8px', height: '8px', background: 'var(--status-loss)', borderRadius: '1px' }} />
+            <span style={{ width: '8px', height: '8px', background: 'var(--color-crimson)', borderRadius: '2px' }} />
             Peringkat 9-10: Zona Gugur / Degradasi
           </div>
-          <div style={{ marginLeft: 'auto', color: 'var(--text-dim)' }}>
+          <div style={{ marginLeft: 'auto', color: 'var(--text-muted)', fontWeight: 600 }}>
             W: Menang (+3 Poin) &bull; D: Seri (+1 Poin) &bull; L: Kalah (0 Poin)
           </div>
         </div>

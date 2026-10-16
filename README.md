@@ -80,23 +80,4 @@ npm run start
 
 ---
 
-## 🔐 Kredensial Akses Staf
-
-- **Email**: `admin@pkm.unhas.ac.id`
-- **Kata Sandi**: `pkm2026`
-
----
-
-## 🚢 Deploy ke Vercel
-
-Proyek ini telah dikonfigurasi secara native untuk Vercel:
-1. Hubungkan repositori GitHub `RfqiAlan/unhas-math-league-system` ke Vercel Dashboard.
-2. Vercel akan otomatis mendeteksi konfigurasi Next.js (`npm run build`).
-3. *(Opsional)* Tambahkan variabel lingkungan Supabase:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-4. Tekan **Deploy**.
-
----
-
 &copy; 2026 Pusat Konsultasi Matematika (PKM) FMIPA Universitas Hasanuddin.

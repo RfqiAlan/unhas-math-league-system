@@ -105,7 +105,7 @@ export default function Home() {
   const currentLigaName = currentLiga === 'mcl' ? 'Math Champions League (MCL)' : 'Math Rookie League (MRL)';
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-canvas)' }}>
       {/* Top Navbar */}
       <Navbar
         isAdmin={isAdmin}
@@ -122,29 +122,29 @@ export default function Home() {
           position: 'relative'
         }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-            <span className="league-badge league-badge-crimson">
+            <span className="badge-clean badge-crimson">
               TURNAMEN RESMI &bull; MUSIM 2026
             </span>
-            <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>
               9 PEKAN ROUND-ROBIN
             </span>
           </div>
 
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)',
-            fontWeight: 800,
-            color: '#ffffff',
+            fontSize: 'clamp(2.5rem, 5.5vw, 4.4rem)',
+            fontWeight: 900,
+            color: 'var(--color-black)',
             lineHeight: 1.08,
             letterSpacing: '-0.04em',
             marginBottom: '16px'
           }}>
-            MATHEMATICS <span style={{ color: 'var(--championship-gold)' }}>LEAGUE</span>
+            MATHEMATICS <span style={{ color: 'var(--color-crimson)' }}>LEAGUE</span>
           </h1>
 
           <p style={{
-            color: 'var(--text-secondary)',
-            fontSize: '1rem',
+            color: 'var(--color-charcoal)',
+            fontSize: '1.02rem',
             maxWidth: '680px',
             margin: '0 auto 28px auto',
             lineHeight: 1.6
@@ -165,9 +165,10 @@ export default function Home() {
           <div style={{
             textAlign: 'center',
             padding: '20px',
-            color: 'var(--championship-gold-light)',
+            color: 'var(--color-crimson)',
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.84rem'
+            fontSize: '0.84rem',
+            fontWeight: 700
           }}>
             MEMUAT DATA DIVISI {currentLiga.toUpperCase()}...
           </div>
@@ -231,7 +232,7 @@ export default function Home() {
 
       {/* Official Collegiate Footer */}
       <footer style={{
-        background: 'rgba(8, 2, 4, 0.98)',
+        background: 'var(--color-white)',
         borderTop: '1px solid var(--border-subtle)',
         padding: '36px 20px',
         fontSize: '0.82rem'
@@ -246,9 +247,9 @@ export default function Home() {
           <div>
             <div style={{
               fontFamily: 'var(--font-display)',
-              fontWeight: 800,
-              color: '#fff',
-              fontSize: '1rem',
+              fontWeight: 900,
+              color: 'var(--color-black)',
+              fontSize: '1.05rem',
               letterSpacing: '-0.02em'
             }}>
               PKM MATH LEAGUE &bull; FMIPA UNIVERSITAS HASANUDDIN
@@ -262,12 +263,12 @@ export default function Home() {
             display: 'flex',
             gap: '20px',
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.76rem'
+            fontSize: '0.78rem'
           }}>
-            <a href="#klasemen" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>KLASEMEN</a>
-            <a href="#jadwal" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>JADWAL DUEL</a>
-            <a href="#mvp" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>MVP PEKAN</a>
-            <a href="/guidebook" style={{ color: 'var(--championship-gold-light)', textDecoration: 'none' }}>BUKU PANDUAN</a>
+            <a href="#klasemen" style={{ color: 'var(--color-charcoal)', textDecoration: 'none', fontWeight: 700 }}>KLASEMEN</a>
+            <a href="#jadwal" style={{ color: 'var(--color-charcoal)', textDecoration: 'none', fontWeight: 700 }}>JADWAL DUEL</a>
+            <a href="#mvp" style={{ color: 'var(--color-charcoal)', textDecoration: 'none', fontWeight: 700 }}>MVP PEKAN</a>
+            <a href="/guidebook" style={{ color: 'var(--color-crimson)', textDecoration: 'none', fontWeight: 800 }}>BUKU PANDUAN</a>
           </div>
         </div>
       </footer>

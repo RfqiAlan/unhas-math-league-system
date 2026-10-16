@@ -16,33 +16,33 @@ export default function Navbar({ isAdmin, onOpenLogin, onOpenAdminPanel }: Navba
       position: 'sticky',
       top: 0,
       zIndex: 50,
-      background: 'rgba(9, 3, 5, 0.92)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
+      background: 'rgba(255, 255, 255, 0.92)',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
       borderBottom: '1px solid var(--border-subtle)'
     }}>
       <div className="container" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '66px'
+        height: '68px'
       }}>
         {/* Brand */}
         <Link href="/" style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '14px',
+          gap: '12px',
           textDecoration: 'none'
         }}>
           <div style={{
             position: 'relative',
-            width: '38px',
-            height: '38px',
-            borderRadius: '6px',
+            width: '40px',
+            height: '40px',
+            borderRadius: 'var(--radius-xs)',
             overflow: 'hidden',
-            border: '1px solid var(--border-primary)',
-            boxShadow: '0 0 16px rgba(133, 10, 20, 0.35)',
-            background: '#000',
+            border: '1.5px solid var(--border-subtle)',
+            background: '#ffffff',
+            boxShadow: 'var(--shadow-subtle)',
             flexShrink: 0
           }}>
             <Image
@@ -56,19 +56,19 @@ export default function Navbar({ isAdmin, onOpenLogin, onOpenAdminPanel }: Navba
           <div>
             <div style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.08rem',
-              fontWeight: 800,
-              color: '#ffffff',
-              letterSpacing: '-0.02em',
+              fontSize: '1.15rem',
+              fontWeight: 900,
+              color: 'var(--color-black)',
+              letterSpacing: '-0.03em',
               lineHeight: 1.15
             }}>
-              PKM <span style={{ color: 'var(--championship-gold)' }}>MATH LEAGUE</span>
+              PKM <span style={{ color: 'var(--color-crimson)' }}>MATH LEAGUE</span>
             </div>
             <div style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.66rem',
-              fontWeight: 600,
-              color: 'var(--text-muted)',
+              fontSize: '0.64rem',
+              fontWeight: 700,
+              color: 'var(--color-charcoal)',
               letterSpacing: '0.06em',
               textTransform: 'uppercase'
             }}>
@@ -84,50 +84,47 @@ export default function Navbar({ isAdmin, onOpenLogin, onOpenAdminPanel }: Navba
           gap: '24px'
         }}>
           <a href="#klasemen" style={{
-            color: 'var(--text-secondary)',
+            color: 'var(--color-charcoal)',
             textDecoration: 'none',
-            fontSize: '0.85rem',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            transition: 'color 0.2s'
+            fontSize: '0.86rem',
+            fontWeight: 700,
+            transition: 'color 0.15s ease'
           }}>
             Klasemen
           </a>
           <a href="#jadwal" style={{
-            color: 'var(--text-secondary)',
+            color: 'var(--color-charcoal)',
             textDecoration: 'none',
-            fontSize: '0.85rem',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            transition: 'color 0.2s'
+            fontSize: '0.86rem',
+            fontWeight: 700,
+            transition: 'color 0.15s ease'
           }}>
             Jadwal Duel
           </a>
           <a href="#mvp" style={{
-            color: 'var(--text-secondary)',
+            color: 'var(--color-charcoal)',
             textDecoration: 'none',
-            fontSize: '0.85rem',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            transition: 'color 0.2s'
+            fontSize: '0.86rem',
+            fontWeight: 700,
+            transition: 'color 0.15s ease'
           }}>
             Performa MVP
           </a>
           <Link href="/guidebook" style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '7px',
-            color: 'var(--championship-gold-light)',
+            gap: '6px',
+            color: 'var(--color-black)',
             textDecoration: 'none',
             fontSize: '0.82rem',
-            fontWeight: 700,
-            background: 'rgba(212, 175, 55, 0.08)',
+            fontWeight: 800,
+            background: 'var(--color-gray-light)',
             padding: '5px 12px',
             borderRadius: 'var(--radius-xs)',
-            border: '1px solid var(--border-gold)',
-            transition: 'all 0.2s'
+            border: '1px solid var(--border-medium)',
+            transition: 'all 0.15s ease'
           }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             </svg>
@@ -136,26 +133,27 @@ export default function Navbar({ isAdmin, onOpenLogin, onOpenAdminPanel }: Navba
         </nav>
 
         {/* Live Status & Admin Trigger */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
             padding: '4px 10px',
-            borderRadius: 'var(--radius-full)',
-            background: 'rgba(16, 185, 129, 0.08)',
-            border: '1px solid rgba(16, 185, 129, 0.25)',
-            fontSize: '0.7rem',
+            borderRadius: 'var(--radius-pill)',
+            background: 'rgba(174, 2, 1, 0.08)',
+            border: '1px solid rgba(174, 2, 1, 0.25)',
+            fontSize: '0.68rem',
             fontFamily: 'var(--font-mono)',
-            fontWeight: 700,
-            color: 'var(--status-win)'
+            fontWeight: 800,
+            color: 'var(--color-crimson)',
+            letterSpacing: '0.04em'
           }}>
             <span style={{
               width: '6px',
               height: '6px',
               borderRadius: '50%',
-              background: 'var(--status-win)',
-              boxShadow: '0 0 8px var(--status-win)'
+              background: 'var(--color-crimson)',
+              boxShadow: '0 0 6px var(--color-crimson)'
             }} />
             MUSIM 2026
           </div>
@@ -163,7 +161,7 @@ export default function Navbar({ isAdmin, onOpenLogin, onOpenAdminPanel }: Navba
           {isAdmin ? (
             <button
               onClick={onOpenAdminPanel}
-              className="btn-league btn-league-gold btn-league-sm"
+              className="btn-unhas btn-gold btn-sm"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <circle cx="12" cy="12" r="3"/>
@@ -174,11 +172,7 @@ export default function Navbar({ isAdmin, onOpenLogin, onOpenAdminPanel }: Navba
           ) : (
             <button
               onClick={onOpenLogin}
-              className="btn-league btn-league-outline btn-league-sm"
-              style={{
-                borderColor: 'var(--border-primary)',
-                background: 'rgba(133, 10, 20, 0.12)'
-              }}
+              className="btn-unhas btn-outline-dark btn-sm"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>

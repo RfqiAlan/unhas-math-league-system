@@ -16,12 +16,13 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
         padding: '30px',
         textAlign: 'center',
         marginBottom: '36px',
-        border: '1px dashed var(--border-primary)'
+        border: '1.5px dashed var(--border-medium)',
+        background: 'var(--color-white)'
       }}>
-        <div className="league-badge league-badge-crimson" style={{ marginBottom: '8px' }}>
+        <div className="badge-clean badge-crimson" style={{ marginBottom: '8px' }}>
           PEKAN MVP
         </div>
-        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#fff' }}>
+        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--color-black)' }}>
           Belum Ada MVP Pekan Terpilih &middot; {ligaName}
         </h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', marginTop: '4px' }}>
@@ -37,22 +38,22 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
 
   return (
     <section id="mvp" className="league-card" style={{
-      padding: '28px 32px',
+      padding: '32px 36px',
       marginBottom: '36px',
       position: 'relative',
       overflow: 'hidden',
-      background: 'linear-gradient(135deg, rgba(30, 9, 14, 0.95) 0%, rgba(12, 4, 6, 0.98) 100%)',
-      borderLeft: '4px solid var(--championship-gold)'
+      background: 'var(--color-white)',
+      borderLeft: '4px solid var(--color-crimson)'
     }}>
       {/* Subtle math watermark in background */}
       <div style={{
         position: 'absolute',
-        right: '20px',
+        right: '24px',
         bottom: '-35px',
         fontFamily: 'var(--font-display)',
         fontSize: '13rem',
         fontWeight: 900,
-        color: 'rgba(212, 175, 55, 0.03)',
+        color: 'rgba(232, 231, 234, 0.4)',
         pointerEvents: 'none',
         lineHeight: 1,
         userSelect: 'none'
@@ -72,13 +73,14 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
         {/* Info Column */}
         <div style={{ flex: '1 1 360px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-            <span className="league-badge league-badge-gold">
+            <span className="badge-clean badge-gold">
               MVP OF THE MATCHWEEK
             </span>
             <span style={{
               fontSize: '0.74rem',
-              color: 'var(--text-muted)',
-              fontFamily: 'var(--font-mono)'
+              color: 'var(--color-charcoal)',
+              fontFamily: 'var(--font-mono)',
+              fontWeight: 700
             }}>
               PEKAN #{mvp.pekan} &bull; DIVISI {ligaName}
             </span>
@@ -86,9 +88,9 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
 
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '2.4rem',
-            fontWeight: 800,
-            color: '#ffffff',
+            fontSize: '2.5rem',
+            fontWeight: 900,
+            color: 'var(--color-black)',
             letterSpacing: '-0.03em',
             lineHeight: 1.1
           }}>
@@ -96,11 +98,11 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
           </h2>
 
           <div style={{
-            color: 'var(--text-secondary)',
-            fontSize: '0.92rem',
+            color: 'var(--color-charcoal)',
+            fontSize: '0.94rem',
             marginTop: '12px',
             maxWidth: '520px',
-            borderLeft: '2px solid var(--border-gold)',
+            borderLeft: '3px solid var(--color-gold)',
             paddingLeft: '14px',
             fontStyle: 'italic',
             lineHeight: 1.5
@@ -113,32 +115,32 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
             display: 'flex',
             alignItems: 'center',
             gap: '12px',
-            marginTop: '20px'
+            marginTop: '22px'
           }}>
             <div style={{
-              background: 'var(--surface-input)',
+              background: 'var(--bg-surface-subtle)',
               padding: '8px 16px',
               borderRadius: 'var(--radius-xs)',
               border: '1px solid var(--border-subtle)'
             }}>
-              <div style={{ fontSize: '0.64rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '0.64rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>
                 Kategori
               </div>
-              <div style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--championship-gold-light)', marginTop: '2px' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--color-black)', marginTop: '2px' }}>
                 Akurasi Tertinggi
               </div>
             </div>
 
             <div style={{
-              background: 'var(--surface-input)',
+              background: 'var(--bg-surface-subtle)',
               padding: '8px 16px',
               borderRadius: 'var(--radius-xs)',
               border: '1px solid var(--border-subtle)'
             }}>
-              <div style={{ fontSize: '0.64rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '0.64rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>
                 Status Duel
               </div>
-              <div style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--status-win)', marginTop: '2px' }}>
+              <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--status-win)', marginTop: '2px' }}>
                 Tak Terkalahkan
               </div>
             </div>
@@ -146,7 +148,7 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
             {onEditMvp && (
               <button
                 onClick={onEditMvp}
-                className="btn-league btn-league-outline btn-league-sm"
+                className="btn-unhas btn-outline-dark btn-sm"
                 style={{ marginLeft: 'auto' }}
               >
                 Ubah Data MVP
@@ -162,9 +164,9 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
           borderRadius: 'var(--radius-md)',
           overflow: 'hidden',
           position: 'relative',
-          background: 'radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.18) 0%, rgba(18, 6, 9, 0.95) 75%)',
-          border: '1px solid var(--border-gold)',
-          boxShadow: '0 12px 36px rgba(0, 0, 0, 0.7)'
+          background: 'var(--bg-surface-subtle)',
+          border: '1.5px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-card)'
         }}>
           {mvp.foto ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -188,16 +190,16 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'var(--championship-gold)'
+              color: 'var(--color-crimson)'
             }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '3.6rem', fontWeight: 800 }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '3.6rem', fontWeight: 900 }}>
                 {mvp.nama.charAt(0).toUpperCase()}
               </span>
               <span style={{
                 fontFamily: 'var(--font-mono)',
-                fontWeight: 700,
+                fontWeight: 800,
                 fontSize: '0.72rem',
-                color: 'var(--text-muted)',
+                color: 'var(--color-charcoal)',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 marginTop: '4px'
@@ -214,26 +216,28 @@ export default function MvpShowcase({ mvp, ligaName, onEditMvp }: MvpShowcasePro
             left: 0,
             right: 0,
             padding: '8px 12px',
-            background: 'linear-gradient(0deg, rgba(8, 2, 4, 0.95) 0%, transparent 100%)',
+            background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 100%)',
+            borderTop: '1px solid var(--border-subtle)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between'
           }}>
             <span style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.66rem',
+              fontSize: '0.68rem',
               fontWeight: 800,
-              color: 'var(--championship-gold-light)',
-              letterSpacing: '0.06em'
+              color: 'var(--color-crimson)',
+              letterSpacing: '0.04em'
             }}>
-              PEKAN {mvp.pekan}
+              PEKAN #{mvp.pekan}
             </span>
             <span style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.62rem',
-              color: 'var(--text-muted)'
+              color: 'var(--color-charcoal)',
+              fontWeight: 700
             }}>
-              RESMI
+              OFFICIAL
             </span>
           </div>
         </div>

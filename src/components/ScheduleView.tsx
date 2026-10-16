@@ -53,17 +53,17 @@ export default function ScheduleView({
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-            <span className="league-badge league-badge-crimson">JADWAL PERTANDINGAN</span>
-            <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+            <span className="badge-clean badge-crimson">JADWAL PERTANDINGAN</span>
+            <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>
               ROUND-ROBIN 9 PEKAN
             </span>
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '1.65rem',
-            fontWeight: 800,
-            color: '#fff',
-            letterSpacing: '-0.02em'
+            fontSize: '1.75rem',
+            fontWeight: 900,
+            color: 'var(--color-black)',
+            letterSpacing: '-0.03em'
           }}>
             Jadwal &amp; Hasil Duel &middot; {currentLiga.toUpperCase()}
           </h2>
@@ -86,15 +86,16 @@ export default function ScheduleView({
                 style={{
                   padding: '6px 14px',
                   borderRadius: 'var(--radius-xs)',
-                  border: isSelected ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
-                  background: isSelected ? 'var(--unhas-crimson)' : 'rgba(255, 255, 255, 0.03)',
-                  color: isSelected ? '#fff' : 'var(--text-muted)',
+                  border: isSelected ? '1.5px solid var(--color-crimson)' : '1px solid var(--border-subtle)',
+                  background: isSelected ? 'var(--color-crimson)' : 'var(--color-white)',
+                  color: isSelected ? '#ffffff' : 'var(--color-charcoal)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.78rem',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
-                  whiteSpace: 'nowrap'
+                  whiteSpace: 'nowrap',
+                  boxShadow: isSelected ? 'var(--shadow-crimson)' : 'var(--shadow-subtle)'
                 }}
               >
                 Pekan {p}
@@ -106,10 +107,10 @@ export default function ScheduleView({
 
       {/* Matchweek Info Bar */}
       <div style={{
-        background: 'rgba(133, 10, 20, 0.15)',
-        border: '1px solid var(--border-primary)',
+        background: 'var(--bg-surface-subtle)',
+        border: '1.5px solid var(--border-subtle)',
         borderRadius: 'var(--radius-sm)',
-        padding: '10px 18px',
+        padding: '12px 20px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -118,24 +119,25 @@ export default function ScheduleView({
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.74rem',
-            fontWeight: 800,
-            color: 'var(--championship-gold-light)',
+            fontSize: '0.76rem',
+            fontWeight: 900,
+            color: 'var(--color-crimson)',
             letterSpacing: '0.06em'
           }}>
             MATCHWEEK {selectedPekan}
           </span>
           <span style={{ color: 'var(--text-dim)' }}>&bull;</span>
-          <span style={{ fontSize: '0.84rem', fontWeight: 600, color: '#fff' }}>
+          <span style={{ fontSize: '0.86rem', fontWeight: 800, color: 'var(--color-black)' }}>
             {dateStr}
           </span>
         </div>
         <div style={{
           fontSize: '0.78rem',
           fontFamily: 'var(--font-mono)',
-          color: 'var(--text-secondary)'
+          color: 'var(--color-charcoal)',
+          fontWeight: 700
         }}>
-          WAKTU: <span style={{ color: 'var(--championship-gold-light)', fontWeight: 700 }}>{JAM_PEKAN}</span> &bull; RUANG PKM FMIPA UNHAS
+          WAKTU: <span style={{ color: 'var(--color-crimson)' }}>{JAM_PEKAN}</span> &bull; RUANG PKM FMIPA UNHAS
         </div>
       </div>
 
@@ -148,11 +150,12 @@ export default function ScheduleView({
             <span style={{
               fontSize: '0.68rem',
               fontFamily: 'var(--font-mono)',
-              color: 'var(--text-dim)',
-              background: 'rgba(255, 255, 255, 0.04)',
+              color: 'var(--text-muted)',
+              background: 'var(--color-gray-light)',
               padding: '3px 8px',
               borderRadius: 'var(--radius-xs)',
-              letterSpacing: '0.05em'
+              letterSpacing: '0.05em',
+              fontWeight: 700
             }}>
               TERJADWAL
             </span>
@@ -165,11 +168,11 @@ export default function ScheduleView({
                   fontSize: '0.68rem',
                   fontFamily: 'var(--font-mono)',
                   color: 'var(--status-win)',
-                  background: 'rgba(16, 185, 129, 0.12)',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  background: 'var(--status-win-bg)',
+                  border: '1px solid rgba(15, 138, 95, 0.3)',
                   padding: '3px 8px',
                   borderRadius: 'var(--radius-xs)',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   letterSpacing: '0.05em'
                 }}>
                   FINAL
@@ -180,12 +183,12 @@ export default function ScheduleView({
                 <span style={{
                   fontSize: '0.68rem',
                   fontFamily: 'var(--font-mono)',
-                  color: 'var(--championship-gold-light)',
-                  background: 'rgba(212, 175, 55, 0.12)',
-                  border: '1px solid var(--border-gold)',
+                  color: 'var(--color-crimson)',
+                  background: 'var(--status-loss-bg)',
+                  border: '1px solid rgba(174, 2, 1, 0.3)',
                   padding: '3px 8px',
                   borderRadius: 'var(--radius-xs)',
-                  fontWeight: 700
+                  fontWeight: 800
                 }}>
                   WO SEPIHAK ({result.hadir})
                 </span>
@@ -195,12 +198,12 @@ export default function ScheduleView({
                 <span style={{
                   fontSize: '0.68rem',
                   fontFamily: 'var(--font-mono)',
-                  color: 'var(--status-loss)',
-                  background: 'rgba(239, 68, 68, 0.12)',
-                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  color: 'var(--color-crimson)',
+                  background: 'var(--status-loss-bg)',
+                  border: '1px solid rgba(174, 2, 1, 0.3)',
                   padding: '3px 8px',
                   borderRadius: 'var(--radius-xs)',
-                  fontWeight: 700
+                  fontWeight: 800
                 }}>
                   WO GANDA (PENALTI -50)
                 </span>
@@ -213,21 +216,22 @@ export default function ScheduleView({
               key={idx}
               className="league-card"
               style={{
-                padding: '14px 20px',
+                padding: '16px 22px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 gap: '16px',
-                borderLeft: result ? '3px solid var(--unhas-crimson-light)' : '3px solid var(--border-subtle)'
+                background: 'var(--color-white)',
+                borderLeft: result ? '3.5px solid var(--color-crimson)' : '3.5px solid var(--border-subtle)'
               }}
             >
-              {/* Left Match Number */}
+              {/* Match Number */}
               <div style={{
                 width: '40px',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.72rem',
+                fontSize: '0.74rem',
                 color: 'var(--text-dim)',
-                fontWeight: 700
+                fontWeight: 800
               }}>
                 M-{idx + 1}
               </div>
@@ -236,14 +240,14 @@ export default function ScheduleView({
               <div style={{ flex: '1 1 200px', textAlign: 'right' }}>
                 <div style={{
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
-                  fontSize: '1rem',
-                  color: '#ffffff'
+                  fontWeight: 800,
+                  fontSize: '1.02rem',
+                  color: 'var(--color-black)'
                 }}>
                   {teamA}
                 </div>
                 {result && result.tipe === 'reguler' && (
-                  <div style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                  <div style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 600 }}>
                     Benar: {result.a === teamA ? result.benarA : result.benarB} soal
                   </div>
                 )}
@@ -258,14 +262,14 @@ export default function ScheduleView({
                 gap: '4px'
               }}>
                 <div style={{
-                  background: 'var(--surface-input)',
-                  border: '1px solid var(--border-subtle)',
+                  background: 'var(--bg-surface-subtle)',
+                  border: '1.5px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-xs)',
                   padding: '6px 16px',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: result && result.tipe === 'reguler' ? '1.15rem' : '0.85rem',
-                  fontWeight: 800,
-                  color: result ? 'var(--championship-gold-light)' : 'var(--text-dim)',
+                  fontSize: result && result.tipe === 'reguler' ? '1.18rem' : '0.86rem',
+                  fontWeight: 900,
+                  color: result ? 'var(--color-crimson)' : 'var(--text-dim)',
                   letterSpacing: '0.04em'
                 }}>
                   {result && result.tipe === 'reguler'
@@ -279,14 +283,14 @@ export default function ScheduleView({
               <div style={{ flex: '1 1 200px', textAlign: 'left' }}>
                 <div style={{
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
-                  fontSize: '1rem',
-                  color: '#ffffff'
+                  fontWeight: 800,
+                  fontSize: '1.02rem',
+                  color: 'var(--color-black)'
                 }}>
                   {teamB}
                 </div>
                 {result && result.tipe === 'reguler' && (
-                  <div style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                  <div style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 600 }}>
                     Benar: {result.a === teamA ? result.benarB : result.benarA} soal
                   </div>
                 )}
@@ -299,15 +303,15 @@ export default function ScheduleView({
                     <div style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end' }}>
                       <button
                         onClick={() => onQuickInputMatch?.(selectedPekan, teamA, teamB)}
-                        className="btn-league btn-league-outline btn-league-sm"
+                        className="btn-unhas btn-outline-dark btn-sm"
                         style={{ padding: '3px 8px', fontSize: '0.72rem' }}
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => onDeleteMatch?.(result.id)}
-                        className="btn-league btn-league-outline btn-league-sm"
-                        style={{ padding: '3px 8px', fontSize: '0.72rem', color: 'var(--status-loss)' }}
+                        className="btn-unhas btn-outline-dark btn-sm"
+                        style={{ padding: '3px 8px', fontSize: '0.72rem', color: 'var(--color-crimson)' }}
                       >
                         Reset
                       </button>
@@ -315,7 +319,7 @@ export default function ScheduleView({
                   ) : (
                     <button
                       onClick={() => onQuickInputMatch?.(selectedPekan, teamA, teamB)}
-                      className="btn-league btn-league-primary btn-league-sm"
+                      className="btn-unhas btn-crimson btn-sm"
                       style={{ padding: '4px 10px', fontSize: '0.74rem' }}
                     >
                       + Input Skor

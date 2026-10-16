@@ -17,6 +17,7 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
     item: { nama: string; foto?: string },
     title: string,
     accentColor: string,
+    pedestalBg: string,
     pedestalHeight: string,
     isFirst: boolean = false
   ) => {
@@ -37,8 +38,8 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
               top: '-14px',
               left: '50%',
               transform: 'translateX(-50%)',
-              background: 'linear-gradient(135deg, var(--championship-gold-light), var(--championship-gold-dark))',
-              color: '#0e0406',
+              background: 'var(--color-gold)',
+              color: 'var(--color-black)',
               padding: '2px 8px',
               borderRadius: 'var(--radius-xs)',
               fontSize: '0.62rem',
@@ -46,7 +47,7 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
               fontWeight: 800,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.6)',
+              boxShadow: 'var(--shadow-subtle)',
               whiteSpace: 'nowrap'
             }}>
               CHAMPION
@@ -59,8 +60,8 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
             borderRadius: 'var(--radius-md)',
             overflow: 'hidden',
             border: `2px solid ${accentColor}`,
-            boxShadow: `0 0 24px ${accentColor}30`,
-            background: 'var(--surface-input)',
+            boxShadow: 'var(--shadow-subtle)',
+            background: 'var(--color-gray-light)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -76,7 +77,7 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
               <div style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: isFirst ? '1.8rem' : '1.4rem',
-                fontWeight: 800,
+                fontWeight: 900,
                 color: accentColor
               }}>
                 {item.nama !== 'TBA' ? item.nama.charAt(0).toUpperCase() : '—'}
@@ -90,9 +91,9 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
             bottom: '-6px',
             left: '50%',
             transform: 'translateX(-50%)',
-            background: '#0e0406',
-            color: accentColor,
-            border: `1px solid ${accentColor}`,
+            background: 'var(--color-white)',
+            color: 'var(--color-black)',
+            border: `1.5px solid ${accentColor}`,
             fontFamily: 'var(--font-mono)',
             fontWeight: 800,
             fontSize: '0.72rem',
@@ -102,7 +103,7 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.8)'
+            boxShadow: 'var(--shadow-subtle)'
           }}>
             {pos}
           </div>
@@ -111,16 +112,16 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
         {/* Name */}
         <div style={{
           fontFamily: 'var(--font-heading)',
-          fontSize: isFirst ? '1.12rem' : '0.96rem',
+          fontSize: isFirst ? '1.15rem' : '0.96rem',
           fontWeight: 800,
-          color: '#ffffff',
+          color: 'var(--color-black)',
           textAlign: 'center',
           marginBottom: '6px',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           maxWidth: '100%',
-          letterSpacing: '-0.01em'
+          letterSpacing: '-0.02em'
         }}>
           {item.nama}
         </div>
@@ -129,10 +130,8 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
         <div style={{
           width: '100%',
           height: pedestalHeight,
-          background: isFirst
-            ? 'linear-gradient(180deg, rgba(212, 175, 55, 0.15) 0%, rgba(26, 9, 13, 0.95) 100%)'
-            : 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(18, 6, 9, 0.95) 100%)',
-          border: `1px solid ${accentColor}50`,
+          background: pedestalBg,
+          border: `1px solid ${accentColor}60`,
           borderBottom: 'none',
           borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
           display: 'flex',
@@ -140,7 +139,7 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
           alignItems: 'center',
           justifyContent: 'center',
           padding: '12px',
-          boxShadow: isFirst ? '0 -4px 24px rgba(212, 175, 55, 0.12)' : 'none'
+          boxShadow: isFirst ? '0 -4px 16px rgba(247, 187, 14, 0.15)' : 'none'
         }}>
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -155,7 +154,8 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
           <div style={{
             fontSize: '0.72rem',
             fontFamily: 'var(--font-mono)',
-            color: 'var(--text-muted)',
+            color: 'var(--color-charcoal)',
+            fontWeight: 600,
             marginTop: '2px'
           }}>
             DIVISI {ligaName}
@@ -170,23 +170,24 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
       padding: '30px 24px 0 24px',
       overflow: 'hidden',
       marginBottom: '36px',
-      borderTop: '2px solid var(--border-gold)'
+      borderTop: '3px solid var(--color-crimson)',
+      background: 'var(--color-white)'
     }}>
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-        <div className="league-badge league-badge-gold" style={{ marginBottom: '8px' }}>
+        <div className="badge-clean badge-gold" style={{ marginBottom: '8px' }}>
           HONOR ROLL &bull; MUSIM 2026
         </div>
         <h3 style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '1.5rem',
-          fontWeight: 800,
-          color: '#ffffff',
-          letterSpacing: '-0.02em',
+          fontSize: '1.6rem',
+          fontWeight: 900,
+          color: 'var(--color-black)',
+          letterSpacing: '-0.03em',
           textTransform: 'uppercase'
         }}>
           Podium Kejuaraan Divisi {ligaName}
         </h3>
-        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+        <p style={{ fontSize: '0.84rem', color: 'var(--color-charcoal)', marginTop: '4px' }}>
           Tiga posisi puncak perebutan gelar juara liga cerdas cermat matematika PKM FMIPA UNHAS
         </p>
       </div>
@@ -199,9 +200,9 @@ export default function PodiumJuara({ juara, ligaName }: PodiumJuaraProps) {
         maxWidth: '720px',
         margin: '0 auto'
       }}>
-        {renderTier(2, second, 'Runner Up', 'var(--silver)', '95px')}
-        {renderTier(1, first, 'Champion', 'var(--championship-gold-light)', '130px', true)}
-        {renderTier(3, third, '3rd Place', 'var(--bronze)', '75px')}
+        {renderTier(2, second, 'Runner Up', 'var(--color-charcoal)', 'var(--bg-surface-subtle)', '95px')}
+        {renderTier(1, first, 'Champion', 'var(--color-crimson)', 'rgba(247, 187, 14, 0.12)', '130px', true)}
+        {renderTier(3, third, '3rd Place', '#9a5316', '#faf4ee', '75px')}
       </div>
     </section>
   );

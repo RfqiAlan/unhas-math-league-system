@@ -269,8 +269,8 @@ export default function AdminModal({
       position: 'fixed',
       inset: 0,
       zIndex: 100,
-      background: 'rgba(5, 2, 3, 0.88)',
-      backdropFilter: 'blur(16px)',
+      background: 'rgba(0, 0, 0, 0.45)',
+      backdropFilter: 'blur(8px)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -281,10 +281,10 @@ export default function AdminModal({
         maxWidth: '720px',
         maxHeight: '90vh',
         overflowY: 'auto',
-        background: '#120508',
-        border: '1px solid var(--border-primary)',
-        padding: '28px',
-        boxShadow: '0 24px 60px rgba(0,0,0,0.85)'
+        background: 'var(--color-white)',
+        border: '1.5px solid var(--border-medium)',
+        padding: '30px',
+        boxShadow: 'var(--shadow-elevated)'
       }}>
         {/* Header */}
         <div style={{
@@ -298,17 +298,17 @@ export default function AdminModal({
           <div>
             <div style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.3rem',
-              fontWeight: 800,
-              color: '#fff',
+              fontSize: '1.35rem',
+              fontWeight: 900,
+              color: 'var(--color-black)',
               display: 'flex',
               alignItems: 'center',
               gap: '10px'
             }}>
-              <span className="league-badge league-badge-gold">PORTAL RESMI</span>
-              {isAdmin ? 'PANEL STAFF TURNAMEN' : 'AUTENTIKASI STAFF PKM'}
+              <span className="badge-clean badge-crimson">PORTAL RESMI</span>
+              {isAdmin ? 'PANEL KONTROL STAF' : 'LOGIN STAF PKM'}
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--color-charcoal)', fontWeight: 600, marginTop: '2px' }}>
               PKM FMIPA UNIVERSITAS HASANUDDIN
             </div>
           </div>
@@ -317,8 +317,8 @@ export default function AdminModal({
             {isAdmin && (
               <button
                 onClick={onLogout}
-                className="btn-league btn-league-outline btn-league-sm"
-                style={{ color: 'var(--status-loss)' }}
+                className="btn-unhas btn-outline-dark btn-sm"
+                style={{ color: 'var(--color-crimson)', borderColor: 'rgba(174, 2, 1, 0.3)' }}
               >
                 Logout
               </button>
@@ -328,8 +328,8 @@ export default function AdminModal({
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: 'var(--text-muted)',
-                fontSize: '1.4rem',
+                color: 'var(--color-charcoal)',
+                fontSize: '1.5rem',
                 cursor: 'pointer',
                 lineHeight: 1
               }}
@@ -339,25 +339,26 @@ export default function AdminModal({
           </div>
         </div>
 
-        {/* Not Logged In: Master Staff Login Form */}
+        {/* Not Logged In */}
         {!isAdmin ? (
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {loginError && (
               <div style={{
-                background: 'rgba(239, 68, 68, 0.12)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
+                background: 'var(--status-loss-bg)',
+                border: '1px solid rgba(174, 2, 1, 0.3)',
                 borderRadius: 'var(--radius-xs)',
                 padding: '10px 14px',
-                color: '#fca5a5',
-                fontSize: '0.84rem'
+                color: 'var(--color-crimson)',
+                fontSize: '0.84rem',
+                fontWeight: 600
               }}>
                 {loginError}
               </div>
             )}
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                EMAIL STAFF PKM
+              <label style={{ display: 'block', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '6px' }}>
+                EMAIL STAF PKM
               </label>
               <input
                 type="email"
@@ -366,18 +367,19 @@ export default function AdminModal({
                 onChange={(e) => setLoginEmail(e.target.value)}
                 style={{
                   width: '100%',
-                  background: 'var(--surface-input)',
-                  border: '1px solid var(--border-subtle)',
+                  background: 'var(--color-white)',
+                  border: '1.5px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-xs)',
                   padding: '9px 14px',
-                  color: '#fff',
-                  fontSize: '0.88rem'
+                  color: 'var(--color-black)',
+                  fontSize: '0.88rem',
+                  fontWeight: 600
                 }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '6px' }}>
                 KATA SANDI
               </label>
               <input
@@ -387,39 +389,39 @@ export default function AdminModal({
                 onChange={(e) => setLoginPassword(e.target.value)}
                 style={{
                   width: '100%',
-                  background: 'var(--surface-input)',
-                  border: '1px solid var(--border-subtle)',
+                  background: 'var(--color-white)',
+                  border: '1.5px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-xs)',
                   padding: '9px 14px',
-                  color: '#fff',
+                  color: 'var(--color-black)',
                   fontSize: '0.88rem'
                 }}
               />
             </div>
 
             <div style={{
-              background: 'rgba(212, 175, 55, 0.06)',
-              border: '1px solid var(--border-gold)',
+              background: 'var(--bg-surface-subtle)',
+              border: '1px solid var(--border-subtle)',
               borderRadius: 'var(--radius-xs)',
               padding: '10px 14px',
-              fontSize: '0.76rem',
-              color: 'var(--championship-gold-light)'
+              fontSize: '0.78rem',
+              color: 'var(--color-charcoal)'
             }}>
-              <b>Kredensial Staff Master:</b><br />
+              <b>Kredensial Staf Master:</b><br />
               Email: <code>admin@pkm.unhas.ac.id</code> &bull; Password: <code>pkm2026</code>
             </div>
 
             <button
               type="submit"
               disabled={loginLoading}
-              className="btn-league btn-league-primary"
+              className="btn-unhas btn-crimson"
               style={{ marginTop: '6px' }}
             >
               {loginLoading ? 'Memverifikasi...' : 'Masuk ke Panel Turnamen'}
             </button>
           </form>
         ) : (
-          /* Logged In: Admin Console Tabs */
+          /* Logged In */
           <div>
             {/* Tabs */}
             <div style={{
@@ -435,12 +437,12 @@ export default function AdminModal({
                 style={{
                   padding: '6px 14px',
                   borderRadius: 'var(--radius-xs)',
-                  border: activeTab === 'match' ? '1px solid var(--border-gold)' : '1px solid transparent',
-                  background: activeTab === 'match' ? 'var(--unhas-crimson)' : 'transparent',
-                  color: activeTab === 'match' ? '#fff' : 'var(--text-muted)',
+                  border: activeTab === 'match' ? '1.5px solid var(--color-crimson)' : '1px solid transparent',
+                  background: activeTab === 'match' ? 'var(--color-crimson)' : 'transparent',
+                  color: activeTab === 'match' ? '#fff' : 'var(--color-charcoal)',
                   fontSize: '0.78rem',
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer'
                 }}
               >
@@ -451,12 +453,12 @@ export default function AdminModal({
                 style={{
                   padding: '6px 14px',
                   borderRadius: 'var(--radius-xs)',
-                  border: activeTab === 'mvp' ? '1px solid var(--border-gold)' : '1px solid transparent',
-                  background: activeTab === 'mvp' ? 'var(--unhas-crimson)' : 'transparent',
-                  color: activeTab === 'mvp' ? '#fff' : 'var(--text-muted)',
+                  border: activeTab === 'mvp' ? '1.5px solid var(--color-crimson)' : '1px solid transparent',
+                  background: activeTab === 'mvp' ? 'var(--color-crimson)' : 'transparent',
+                  color: activeTab === 'mvp' ? '#fff' : 'var(--color-charcoal)',
                   fontSize: '0.78rem',
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer'
                 }}
               >
@@ -467,12 +469,12 @@ export default function AdminModal({
                 style={{
                   padding: '6px 14px',
                   borderRadius: 'var(--radius-xs)',
-                  border: activeTab === 'champions' ? '1px solid var(--border-gold)' : '1px solid transparent',
-                  background: activeTab === 'champions' ? 'var(--unhas-crimson)' : 'transparent',
-                  color: activeTab === 'champions' ? '#fff' : 'var(--text-muted)',
+                  border: activeTab === 'champions' ? '1.5px solid var(--color-crimson)' : '1px solid transparent',
+                  background: activeTab === 'champions' ? 'var(--color-crimson)' : 'transparent',
+                  color: activeTab === 'champions' ? '#fff' : 'var(--color-charcoal)',
                   fontSize: '0.78rem',
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer'
                 }}
               >
@@ -483,12 +485,12 @@ export default function AdminModal({
                 style={{
                   padding: '6px 14px',
                   borderRadius: 'var(--radius-xs)',
-                  border: activeTab === 'peserta' ? '1px solid var(--border-gold)' : '1px solid transparent',
-                  background: activeTab === 'peserta' ? 'var(--unhas-crimson)' : 'transparent',
-                  color: activeTab === 'peserta' ? '#fff' : 'var(--text-muted)',
+                  border: activeTab === 'peserta' ? '1.5px solid var(--color-crimson)' : '1px solid transparent',
+                  background: activeTab === 'peserta' ? 'var(--color-crimson)' : 'transparent',
+                  color: activeTab === 'peserta' ? '#fff' : 'var(--color-charcoal)',
                   fontSize: '0.78rem',
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer'
                 }}
               >
@@ -499,12 +501,12 @@ export default function AdminModal({
                 style={{
                   padding: '6px 14px',
                   borderRadius: 'var(--radius-xs)',
-                  border: activeTab === 'rls' ? '1px solid var(--border-gold)' : '1px solid transparent',
-                  background: activeTab === 'rls' ? 'var(--unhas-crimson)' : 'transparent',
-                  color: activeTab === 'rls' ? '#fff' : 'var(--text-muted)',
+                  border: activeTab === 'rls' ? '1.5px solid var(--color-crimson)' : '1px solid transparent',
+                  background: activeTab === 'rls' ? 'var(--color-crimson)' : 'transparent',
+                  color: activeTab === 'rls' ? '#fff' : 'var(--color-charcoal)',
                   fontSize: '0.78rem',
                   fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   cursor: 'pointer'
                 }}
               >
@@ -512,7 +514,7 @@ export default function AdminModal({
               </button>
             </div>
 
-            {/* TAB 1: HASIL DUEL */}
+            {/* TAB 1: HASIL */}
             {activeTab === 'match' && (
               <form onSubmit={handleSaveMatch} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {matchStatusMsg && (
@@ -520,12 +522,13 @@ export default function AdminModal({
                     padding: '8px 12px',
                     borderRadius: 'var(--radius-xs)',
                     background: matchStatusMsg.startsWith('Gagal') || matchStatusMsg.startsWith('Error')
-                      ? 'rgba(239, 68, 68, 0.15)'
-                      : 'rgba(16, 185, 129, 0.15)',
+                      ? 'var(--status-loss-bg)'
+                      : 'var(--status-win-bg)',
                     fontSize: '0.82rem',
                     color: matchStatusMsg.startsWith('Gagal') || matchStatusMsg.startsWith('Error')
-                      ? 'var(--status-loss)'
-                      : 'var(--status-win)'
+                      ? 'var(--color-crimson)'
+                      : 'var(--status-win)',
+                    fontWeight: 700
                   }}>
                     {matchStatusMsg}
                   </div>
@@ -533,13 +536,13 @@ export default function AdminModal({
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>
                       DIVISI LIGA
                     </label>
                     <select
                       value={matchLiga}
                       onChange={(e) => setMatchLiga(e.target.value as LigaType)}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: '#fff' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: 'var(--color-black)', fontWeight: 600 }}
                     >
                       <option value="mcl">MCL (Champions)</option>
                       <option value="mrl">MRL (Rookies)</option>
@@ -547,13 +550,13 @@ export default function AdminModal({
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>
                       PEKAN PERTANDINGAN
                     </label>
                     <select
                       value={matchPekan}
                       onChange={(e) => setMatchPekan(Number(e.target.value))}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: '#fff' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: 'var(--color-black)', fontWeight: 600 }}
                     >
                       {Array.from({ length: 9 }, (_, i) => i + 1).map(p => (
                         <option key={p} value={p}>Pekan #{p}</option>
@@ -562,13 +565,13 @@ export default function AdminModal({
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>
                       STATUS DUEL
                     </label>
                     <select
                       value={matchTipe}
                       onChange={(e) => setMatchTipe(e.target.value as MatchType)}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: '#fff' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: 'var(--color-black)', fontWeight: 600 }}
                     >
                       <option value="reguler">Duel Normal</option>
                       <option value="wo1">WO Sepihak (Denda -50)</option>
@@ -581,13 +584,13 @@ export default function AdminModal({
                   <>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>
                           Peserta A
                         </label>
                         <select
                           value={teamA}
                           onChange={(e) => setTeamA(e.target.value)}
-                          style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: '#fff' }}
+                          style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: 'var(--color-black)', fontWeight: 600 }}
                         >
                           <option value="">Pilih Peserta A</option>
                           {currentPesertaOptions.map(p => <option key={p} value={p}>{p}</option>)}
@@ -595,13 +598,13 @@ export default function AdminModal({
                       </div>
 
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>
                           Peserta B
                         </label>
                         <select
                           value={teamB}
                           onChange={(e) => setTeamB(e.target.value)}
-                          style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: '#fff' }}
+                          style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', borderRadius: 'var(--radius-xs)', padding: '8px', color: 'var(--color-black)', fontWeight: 600 }}
                         >
                           <option value="">Pilih Peserta B</option>
                           {currentPesertaOptions.map(p => <option key={p} value={p}>{p}</option>)}
@@ -611,39 +614,39 @@ export default function AdminModal({
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '10px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>SKOR A</label>
+                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>SKOR A</label>
                         <input
                           type="number"
                           value={skorA}
                           onChange={(e) => setSkorA(Number(e.target.value))}
-                          style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '6px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                          style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '6px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 700 }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>BENAR A</label>
+                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>BENAR A</label>
                         <input
                           type="number"
                           value={benarA}
                           onChange={(e) => setBenarA(Number(e.target.value))}
-                          style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '6px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                          style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '6px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 700 }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>SKOR B</label>
+                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>SKOR B</label>
                         <input
                           type="number"
                           value={skorB}
                           onChange={(e) => setSkorB(Number(e.target.value))}
-                          style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '6px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                          style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '6px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 700 }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>BENAR B</label>
+                        <label style={{ display: 'block', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>BENAR B</label>
                         <input
                           type="number"
                           value={benarB}
                           onChange={(e) => setBenarB(Number(e.target.value))}
-                          style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '6px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                          style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '6px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 700 }}
                         />
                       </div>
                     </div>
@@ -653,13 +656,13 @@ export default function AdminModal({
                 {matchTipe === 'wo1' && (
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--status-win)', marginBottom: '4px' }}>
+                      <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--status-win)', fontWeight: 700, marginBottom: '4px' }}>
                         Peserta Hadir (Menang)
                       </label>
                       <select
                         value={woHadir}
                         onChange={(e) => setWoHadir(e.target.value)}
-                        style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                        style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                       >
                         <option value="">Pilih yang hadir</option>
                         {currentPesertaOptions.map(p => <option key={p} value={p}>{p}</option>)}
@@ -667,13 +670,13 @@ export default function AdminModal({
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--status-loss)', marginBottom: '4px' }}>
+                      <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-crimson)', fontWeight: 700, marginBottom: '4px' }}>
                         Peserta Absen (Kalah &amp; Denda -50 Skor)
                       </label>
                       <select
                         value={woAbsen}
                         onChange={(e) => setWoAbsen(e.target.value)}
-                        style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                        style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                       >
                         <option value="">Pilih yang absen</option>
                         {currentPesertaOptions.map(p => <option key={p} value={p}>{p}</option>)}
@@ -682,7 +685,7 @@ export default function AdminModal({
                   </div>
                 )}
 
-                <button type="submit" className="btn-league btn-league-primary" style={{ marginTop: '8px' }}>
+                <button type="submit" className="btn-unhas btn-crimson" style={{ marginTop: '8px' }}>
                   Simpan Hasil Duel
                 </button>
               </form>
@@ -692,29 +695,29 @@ export default function AdminModal({
             {activeTab === 'mvp' && (
               <form onSubmit={handleSaveMvp} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {mvpStatusMsg && (
-                  <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-xs)', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--status-win)', fontSize: '0.82rem' }}>
+                  <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-xs)', background: 'var(--status-win-bg)', color: 'var(--status-win)', fontSize: '0.82rem', fontWeight: 700 }}>
                     {mvpStatusMsg}
                   </div>
                 )}
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>DIVISI</label>
+                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>DIVISI</label>
                     <select
                       value={mvpLiga}
                       onChange={(e) => setMvpLiga(e.target.value as LigaType)}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                     >
                       <option value="mcl">MCL</option>
                       <option value="mrl">MRL</option>
                     </select>
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>PEKAN</label>
+                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>PEKAN</label>
                     <select
                       value={mvpPekan}
                       onChange={(e) => setMvpPekan(Number(e.target.value))}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                     >
                       {Array.from({ length: 9 }, (_, i) => i + 1).map(p => <option key={p} value={p}>Pekan #{p}</option>)}
                     </select>
@@ -722,56 +725,56 @@ export default function AdminModal({
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>Nama Peserta Terpilih</label>
+                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>Nama Peserta Terpilih</label>
                   <input
                     type="text"
                     required
                     placeholder="Contoh: Kumiko"
                     value={mvpNama}
                     onChange={(e) => setMvpNama(e.target.value)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>URL Foto Potret (Opsional)</label>
+                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>URL Foto Potret (Opsional)</label>
                   <input
                     type="url"
                     placeholder="https://..."
                     value={mvpFoto}
                     onChange={(e) => setMvpFoto(e.target.value)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)' }}
                   />
                 </div>
 
                 {/* Adjustment Sliders */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
                   <div>
-                    <label style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>POSISI X ({mvpPosX}%)</label>
+                    <label style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>POSISI X ({mvpPosX}%)</label>
                     <input type="range" min="0" max="100" value={mvpPosX} onChange={(e) => setMvpPosX(Number(e.target.value))} style={{ width: '100%' }} />
                   </div>
                   <div>
-                    <label style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>POSISI Y ({mvpPosY}%)</label>
+                    <label style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>POSISI Y ({mvpPosY}%)</label>
                     <input type="range" min="0" max="100" value={mvpPosY} onChange={(e) => setMvpPosY(Number(e.target.value))} style={{ width: '100%' }} />
                   </div>
                   <div>
-                    <label style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>SKALA ({mvpSkala}%)</label>
+                    <label style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700 }}>SKALA ({mvpSkala}%)</label>
                     <input type="range" min="50" max="200" value={mvpSkala} onChange={(e) => setMvpSkala(Number(e.target.value))} style={{ width: '100%' }} />
                   </div>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>Kutipan Evaluasi Dewan Juri</label>
+                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>Kutipan Evaluasi Dewan Juri</label>
                   <input
                     type="text"
                     placeholder="Solusi kilat dengan akurasi prima di babak aljabar linier..."
                     value={mvpCatatan}
                     onChange={(e) => setMvpCatatan(e.target.value)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)' }}
                   />
                 </div>
 
-                <button type="submit" className="btn-league btn-league-gold">
+                <button type="submit" className="btn-unhas btn-crimson">
                   Perbarui MVP Pekan
                 </button>
               </form>
@@ -781,17 +784,17 @@ export default function AdminModal({
             {activeTab === 'champions' && (
               <form onSubmit={handleSaveJuara} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {juaraStatusMsg && (
-                  <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-xs)', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--status-win)', fontSize: '0.82rem' }}>
+                  <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-xs)', background: 'var(--status-win-bg)', color: 'var(--status-win)', fontSize: '0.82rem', fontWeight: 700 }}>
                     {juaraStatusMsg}
                   </div>
                 )}
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>DIVISI LIGA</label>
+                  <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>DIVISI LIGA</label>
                   <select
                     value={juaraLiga}
                     onChange={(e) => setJuaraLiga(e.target.value as LigaType)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                   >
                     <option value="mcl">MCL</option>
                     <option value="mrl">MRL</option>
@@ -799,7 +802,7 @@ export default function AdminModal({
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--championship-gold-light)', fontWeight: 700, marginBottom: '4px' }}>
+                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-black)', fontWeight: 800, marginBottom: '4px' }}>
                     Juara 1 (Champion)
                   </label>
                   <input
@@ -807,12 +810,12 @@ export default function AdminModal({
                     placeholder="Nama Juara 1"
                     value={juara1}
                     onChange={(e) => setJuara1(e.target.value)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--silver)', fontWeight: 700, marginBottom: '4px' }}>
+                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 800, marginBottom: '4px' }}>
                     Juara 2 (Runner Up)
                   </label>
                   <input
@@ -820,12 +823,12 @@ export default function AdminModal({
                     placeholder="Nama Juara 2"
                     value={juara2}
                     onChange={(e) => setJuara2(e.target.value)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--bronze)', fontWeight: 700, marginBottom: '4px' }}>
+                  <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 800, marginBottom: '4px' }}>
                     Juara 3 (3rd Place)
                   </label>
                   <input
@@ -833,11 +836,11 @@ export default function AdminModal({
                     placeholder="Nama Juara 3"
                     value={juara3}
                     onChange={(e) => setJuara3(e.target.value)}
-                    style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                    style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                   />
                 </div>
 
-                <button type="submit" className="btn-league btn-league-gold">
+                <button type="submit" className="btn-unhas btn-crimson">
                   Perbarui Podium Juara
                 </button>
               </form>
@@ -847,48 +850,48 @@ export default function AdminModal({
             {activeTab === 'peserta' && (
               <form onSubmit={handleAddPeserta} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {pesertaStatusMsg && (
-                  <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-xs)', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--status-win)', fontSize: '0.82rem' }}>
+                  <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-xs)', background: 'var(--status-win-bg)', color: 'var(--status-win)', fontSize: '0.82rem', fontWeight: 700 }}>
                     {pesertaStatusMsg}
                   </div>
                 )}
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '12px' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginBottom: '4px' }}>DIVISI</label>
+                    <label style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>DIVISI</label>
                     <select
                       value={newPesertaLiga}
                       onChange={(e) => setNewPesertaLiga(e.target.value as LigaType)}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                     >
                       <option value="mcl">MCL</option>
                       <option value="mrl">MRL</option>
                     </select>
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>Nama Peserta Baru</label>
+                    <label style={{ display: 'block', fontSize: '0.74rem', color: 'var(--color-charcoal)', fontWeight: 700, marginBottom: '4px' }}>Nama Peserta Baru</label>
                     <input
                       type="text"
                       required
                       placeholder="Nama peserta..."
                       value={newPesertaNama}
                       onChange={(e) => setNewPesertaNama(e.target.value)}
-                      style={{ width: '100%', background: 'var(--surface-input)', border: '1px solid var(--border-subtle)', padding: '8px', color: '#fff', borderRadius: 'var(--radius-xs)' }}
+                      style={{ width: '100%', background: 'var(--color-white)', border: '1.5px solid var(--border-subtle)', padding: '8px', color: 'var(--color-black)', borderRadius: 'var(--radius-xs)', fontWeight: 600 }}
                     />
                   </div>
                 </div>
 
-                <button type="submit" className="btn-league btn-league-primary">
+                <button type="submit" className="btn-unhas btn-crimson">
                   + Daftarkan Peserta
                 </button>
               </form>
             )}
 
-            {/* TAB 5: SERVER STATUS */}
+            {/* TAB 5: SERVER */}
             {activeTab === 'rls' && (
-              <div style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+              <div style={{ fontSize: '0.84rem', color: 'var(--color-charcoal)', lineHeight: 1.6 }}>
                 <div style={{
-                  background: 'rgba(16, 185, 129, 0.08)',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  background: 'var(--status-win-bg)',
+                  border: '1px solid rgba(15, 138, 95, 0.3)',
                   padding: '14px',
                   borderRadius: 'var(--radius-xs)',
                   marginBottom: '16px'
@@ -901,14 +904,14 @@ export default function AdminModal({
                 </p>
 
                 <pre style={{
-                  background: '#0a0305',
+                  background: 'var(--bg-surface-subtle)',
                   padding: '12px',
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--border-subtle)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.74rem',
                   overflowX: 'auto',
-                  color: 'var(--championship-gold-light)'
+                  color: 'var(--color-black)'
                 }}>
 {`-- Eksekusi di SQL Editor Supabase:
 CREATE POLICY "Public insert pertandingan" ON pertandingan FOR INSERT WITH CHECK (true);

@@ -1,55 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800;12..96,900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Official Academic Colors */
-  --unhas-crimson: #850a14;
-  --unhas-crimson-dark: #4d040a;
-  --unhas-crimson-light: #b3101e;
-  --unhas-crimson-glow: rgba(179, 16, 30, 0.4);
+  /* User-Defined Official Palette */
+  --color-black: #000000;
+  --color-gray-light: #e8e7ea;
+  --color-crimson: #ae0201;
+  --color-charcoal: #343236;
+  --color-white: #ffffff;
+  --color-gold: #f7bb0e;
 
-  --championship-gold: #d4af37;
-  --championship-gold-light: #f5d77f;
-  --championship-gold-dark: #997819;
-  --championship-gold-glow: rgba(212, 175, 55, 0.35);
+  /* Semantic Canvas & Surface Tokens (Clear White Theme) */
+  --bg-canvas: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #f8f8fa;
+  --bg-surface-elevated: #ffffff;
+  --bg-input: #ffffff;
 
-  --silver: #cbd5e1;
-  --bronze: #cd7f32;
+  /* Text & Typography */
+  --text-main: #000000;
+  --text-body: #343236;
+  --text-muted: #6b696e;
+  --text-dim: #9b999f;
+  --text-on-crimson: #ffffff;
 
-  /* Surfaces & Canvas */
-  --surface-canvas: #090305;
-  --surface-panel: rgba(18, 6, 9, 0.82);
-  --surface-panel-elevated: #1e090e;
-  --surface-panel-card: rgba(26, 9, 13, 0.9);
-  --surface-input: #100406;
+  /* Borders & Dividers */
+  --border-subtle: #e8e7ea;
+  --border-medium: #d4d3d7;
+  --border-strong: #343236;
+  --border-crimson: #ae0201;
+  --border-gold: #f7bb0e;
 
-  /* Editorial Borders & Dividers */
-  --border-primary: rgba(133, 10, 20, 0.4);
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-gold: rgba(212, 175, 55, 0.35);
-
-  /* Performance & Results */
-  --status-win: #10b981;
-  --status-draw: #94a3b8;
-  --status-loss: #ef4444;
-
-  /* Editorial Typography */
-  --text-primary: #ffffff;
-  --text-secondary: #e2d1d4;
-  --text-muted: #9e7f84;
-  --text-dim: #6b5055;
+  /* Tournament Performance Accents */
+  --status-win: #0f8a5f;
+  --status-win-bg: #e6f7f0;
+  --status-draw: #5a575e;
+  --status-draw-bg: #f0eff2;
+  --status-loss: #ae0201;
+  --status-loss-bg: #fdf0f0;
 
   /* Typography Stacks */
-  --font-display: 'Bricolage Grotesque', 'Outfit', system-ui, sans-serif;
-  --font-heading: 'Outfit', system-ui, sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Outfit', -apple-system, sans-serif;
+  --font-heading: 'Outfit', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Layout */
+  /* Radii */
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-full: 9999px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-elevated: 0 12px 36px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-crimson: 0 6px 20px rgba(174, 2, 1, 0.22);
 }
 
 *, *::before, *::after {
@@ -60,22 +66,20 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background-color: var(--surface-canvas);
+  background-color: var(--bg-canvas);
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    radial-gradient(ellipse 70% 35% at 50% -5%, rgba(133, 10, 20, 0.45) 0%, transparent 65%),
-    radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
-    linear-gradient(180deg, #090305 0%, #060203 100%);
-  background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
+    linear-gradient(to right, rgba(232, 231, 234, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232, 231, 234, 0.45) 1px, transparent 1px),
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(174, 2, 1, 0.04) 0%, transparent 60%);
+  background-size: 36px 36px, 36px 36px, 100% 100%;
   background-attachment: fixed;
-  color: var(--text-primary);
+  color: var(--text-body);
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
@@ -89,24 +93,23 @@ body {
   padding: 0 24px;
 }
 
-/* League Glass Panel */
+/* High-End Clean Card */
 .league-card {
-  background: var(--surface-panel);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   position: relative;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .league-card:hover {
-  border-color: rgba(133, 10, 20, 0.4);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-elevated);
 }
 
 /* Badges */
-.league-badge {
+.badge-clean {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -119,20 +122,26 @@ body {
   text-transform: uppercase;
 }
 
-.league-badge-gold {
-  background: rgba(212, 175, 55, 0.12);
-  color: var(--championship-gold-light);
-  border: 1px solid var(--border-gold);
+.badge-crimson {
+  background: rgba(174, 2, 1, 0.08);
+  color: var(--color-crimson);
+  border: 1px solid rgba(174, 2, 1, 0.25);
 }
 
-.league-badge-crimson {
-  background: rgba(133, 10, 20, 0.2);
-  color: #fca5a5;
-  border: 1px solid rgba(179, 16, 30, 0.4);
+.badge-gold {
+  background: rgba(247, 187, 14, 0.14);
+  color: #a37200;
+  border: 1px solid rgba(247, 187, 14, 0.45);
 }
 
-/* Editorial Buttons */
-.btn-league {
+.badge-dark {
+  background: var(--color-gray-light);
+  color: var(--color-black);
+  border: 1px solid var(--border-medium);
+}
+
+/* Buttons */
+.btn-unhas {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +151,6 @@ body {
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
   cursor: pointer;
   border: none;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -150,46 +158,46 @@ body {
   user-select: none;
 }
 
-.btn-league-primary {
-  background: linear-gradient(135deg, var(--unhas-crimson-light), var(--unhas-crimson));
+.btn-crimson {
+  background: var(--color-crimson);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 18px rgba(133, 10, 20, 0.4);
+  box-shadow: var(--shadow-crimson);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.btn-league-primary:hover {
-  background: linear-gradient(135deg, #cc1424, var(--unhas-crimson-light));
+.btn-crimson:hover {
+  background: #8e0201;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(179, 16, 30, 0.55);
+  box-shadow: 0 8px 24px rgba(174, 2, 1, 0.32);
 }
 
-.btn-league-gold {
-  background: linear-gradient(135deg, var(--championship-gold-light), var(--championship-gold));
-  color: #14070a;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+.btn-gold {
+  background: var(--color-gold);
+  color: #000000;
+  font-weight: 800;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(247, 187, 14, 0.35);
 }
 
-.btn-league-gold:hover {
-  background: linear-gradient(135deg, #fff, var(--championship-gold-light));
+.btn-gold:hover {
+  background: #e5aa09;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
 }
 
-.btn-league-outline {
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-secondary);
+.btn-outline-dark {
+  background: #ffffff;
+  color: var(--color-charcoal);
   border: 1px solid var(--border-subtle);
 }
 
-.btn-league-outline:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+.btn-outline-dark:hover {
+  background: var(--color-gray-light);
+  color: var(--color-black);
+  border-color: var(--border-medium);
   transform: translateY(-1px);
 }
 
-.btn-league-sm {
+.btn-sm {
   padding: 6px 12px;
   font-size: 0.78rem;
   border-radius: var(--radius-xs);
@@ -202,14 +210,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--surface-canvas);
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #330b10;
+  background: var(--color-gray-light);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--unhas-crimson);
+  background: var(--color-charcoal);
 }
